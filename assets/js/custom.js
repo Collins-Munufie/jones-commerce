@@ -8,6 +8,7 @@
 const products_row = document.querySelector('.products-row')
 let productsUrl = "https://dummyjson.com/products";
 const menProducts = document.querySelector('.men')
+const allProducts = document.querySelector(".all");
 
 async function getAllProducts() {
     
@@ -66,10 +67,17 @@ async function getAllProducts() {
      
     });
 }
-// getAllProducts();
+getAllProducts();
+allProducts.addEventListener('click', function () {
+    products_row.innerHTML = '';
+    productsUrl = "https://dummyjson.com/products";
+    getAllProducts();
+});
 
 menProducts.addEventListener('click', function () {
+    products_row.innerHTML = '';
     productsUrl =
-      "https://dummyjson.com/products/category/mens-shoes";
+        "https://dummyjson.com/products/category/mens-shoes";
     getAllProducts();
-})
+});
+
