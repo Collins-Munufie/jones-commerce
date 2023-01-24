@@ -30,6 +30,10 @@ categories.forEach(button => {
             productsUrl =
               "https://dummyjson.com/products/category/womens-dresses";
             getProducts();
+            womenShoes();
+            womenWatches();
+            womenBags();
+            womenJewelly();
         })
     }
 });
@@ -146,5 +150,21 @@ function menShirt() {
 }
 function menWatches() {
     productsUrl = "https://dummyjson.com/products/category/mens-watches";
+    moreProducts();
+}
+function womenShoes() {
+    productsUrl = "https://dummyjson.com/products/category/womens-shoes";
+    moreProducts();
+}
+function womenWatches() {
+    productsUrl = "https://dummyjson.com/products/category/womens-watches";
+    moreProducts();
+}
+function womenBags() {
+    productsUrl = "https://dummyjson.com/products/category/womens-bags";
+    moreProducts();
+}
+function womenJewelly() {
+    productsUrl = "https://dummyjson.com/products/category/womens-jewellery";
     moreProducts();
 }
