@@ -8,6 +8,7 @@
 const products_row = document.querySelector('.products-row')
 let productsUrl = "https://dummyjson.com/products";
 const categories = document.querySelectorAll('.cat')
+const nextButtons = document.querySelectorAll('.next')
 
 categories.forEach(button => {
     if (button.textContent.includes('All')) {
@@ -16,6 +17,13 @@ categories.forEach(button => {
            productsUrl = "https://dummyjson.com/products";
            getProducts();         
         });
+        nextButtons.forEach(nextBtn => {
+            if (nextBtn.textContent.includes('2')) {
+                nextBtn.addEventListener('click', function () {
+                    nextOne();
+                })
+            }
+        })
     } else if (button.textContent.includes("Men's")) {
         button.addEventListener('click', function () {
             products_row.innerHTML = "";
@@ -95,6 +103,7 @@ async function getProducts() {
     });
 }
 getProducts();
+tops()
 
 async function moreProducts() {
   const req = await fetch(productsUrl);
@@ -166,5 +175,27 @@ function womenBags() {
 }
 function womenJewelly() {
     productsUrl = "https://dummyjson.com/products/category/womens-jewellery";
+    moreProducts();
+}
+function tops() {
+    productsUrl = "https://dummyjson.com/products/category/tops";
+    moreProducts();
+}
+function homeDecor() {
+    productsUrl = "https://dummyjson.com/products/category/home-decoration";
+    moreProducts();
+}
+function nextOne() {
+    products_row.textContent = ''
+    productsUrl = "https://dummyjson.com/products/category/groceries";
+    moreProducts();
+    homeDecor();
+}
+function nextTwo() {
+    productsUrl = "https://dummyjson.com/products/category/tops";
+    moreProducts();
+}
+function nextThree() {
+    productsUrl = "https://dummyjson.com/products/category/tops";
     moreProducts();
 }
