@@ -4,7 +4,6 @@
 
 
 // Shop
-
 const products_row = document.querySelector('.products-row')
 let productsUrl = "https://dummyjson.com/products";
 const categories = document.querySelectorAll('.cat')
@@ -277,8 +276,16 @@ function skincare() {
 function sunglasses() {
     productsUrl = "https://dummyjson.com/products/category/sunglasses";
     moreProducts();
+   
 }
+
+
 
 function onmouseOver() {
   backgroundColor = "green";
 }
+
+// Shop single product
+
+const cartNumber = document.querySelector(".cart-number");
+cartNumber.textContent = Number(cartNumber.textContent) + 6;
