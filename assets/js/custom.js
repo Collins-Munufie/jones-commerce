@@ -20,21 +20,21 @@ categories.forEach(button => {
         nextButtons.forEach(nextBtn => {
             if (nextBtn.textContent.includes('2')) {
                 nextBtn.addEventListener('click', function () {
-                    nextBtn.style.backgroundColor = 'green';
+                    nextBtn.style.backgroundColor = 'yellow';
                     nextButtons[0].style.backgroundColor = 'white'
                     nextButtons[2].style.backgroundColor = 'white'
                     nextOne();
                 });
             } else if (nextBtn.textContent.includes('3')) {
                 nextBtn.addEventListener("click", function () {
-                  nextBtn.style.backgroundColor = "green";
+                  nextBtn.style.backgroundColor = "yellow";
                   nextButtons[0].style.backgroundColor = "white";
                   nextButtons[1].style.backgroundColor = "white";
                   nextTwo();
                 });
             } else if (nextBtn.textContent.includes('1')) {
                 nextBtn.addEventListener("click", function () {
-                  nextBtn.style.backgroundColor = "green";
+                  nextBtn.style.backgroundColor = "yellow";
                   nextButtons[1].style.backgroundColor = "white";
                     nextButtons[2].style.backgroundColor = "white";
                     products_row.innerHTML = '';
@@ -122,9 +122,9 @@ async function getProducts() {
                                 <img class="card-img rounded-0 img-fluid" src="${product.thumbnail}">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                        <li><a class="btn btn-warning text-danger" href="shop-single.html"><i class="far fa-heart"></i></a></li>
+                                        <li><a class="btn btn-warning text-danger mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-warning text-danger mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -174,9 +174,9 @@ async function moreProducts() {
                                 <img class="card-img rounded-0 img-fluid" src="${product.thumbnail}">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                        <li><a class="btn btn-warning text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
+                                        <li><a class="btn btn-warning text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-warning text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -282,7 +282,7 @@ function sunglasses() {
 
 
 function onmouseOver() {
-  backgroundColor = "green";
+  backgroundColor = "yellow";
 }
 
 // Shop single product
