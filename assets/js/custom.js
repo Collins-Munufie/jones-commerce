@@ -9,6 +9,16 @@ let productsUrl = "https://dummyjson.com/products";
 const categories = document.querySelectorAll('.cat')
 const nextButtons = document.querySelectorAll('.next')
 const categoryGroups = document.querySelectorAll(".categories-product");
+const sizeBtn = document.querySelectorAll(".btn-size");
+
+
+sizeBtn.forEach(size => {
+    size.addEventListener('click', function () {
+        size.style.backgroundColor = "#333d4a";
+        size.style.border = 'none'
+        
+    })
+})
 
 categories.forEach(button => {
     if (button.textContent.includes('All')) {
