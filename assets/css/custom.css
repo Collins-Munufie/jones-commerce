@@ -4,3 +4,6 @@ Custom Css
 .next:active{
     background-color: green;
 }
+body{
+    background-color:grey;
+}
