@@ -230,20 +230,20 @@ function createProducts(product) {
     color_Li.appendChild(span_5)
     ul_2.appendChild(color_Li);
 
-    // // Create a ul for the stars
-    // let stars_Ul = document.createElement("ul")
-    // stars_Ul.classList.add("list-unstyled", "d-flex", "justify-content-center", "mb-1");
-    // let stars_Li = document.createElement("li");
-    // let star_1 = document.createElement("i");
-    // star_1.classList.add("text-warning", "fa", "fa-star");
-    // let star_2 = document.createElement("i");
-    // star_2.classList.add("text-warning", "fa", "fa-star");
-    // let star_3 = document.createElement("i");
-    // star_3.classList.add("text-warning", "fa", "fa-star");
-    // let star_4 = document.createElement("i");
-    // star_4.classList.add("text-warning", "fa", "fa-star");
-    // let star_5 = document.createElement("i");
-    // star_5.classList.add("text-warning", "fa", "fa-star");
+    // Create a ul for the stars
+    let stars_Ul = document.createElement("ul")
+    stars_Ul.classList.add("list-unstyled", "d-flex", "justify-content-center", "mb-1");
+    let stars_Li = document.createElement("li");
+    let star_1 = document.createElement("i");
+    star_1.classList.add("text-warning", "fa", "fa-star");
+    let star_2 = document.createElement("i");
+    star_2.classList.add("text-warning", "fa", "fa-star");
+    let star_3 = document.createElement("i");
+    star_3.classList.add("text-warning", "fa", "fa-star");
+    let star_4 = document.createElement("i");
+    star_4.classList.add("text-warning", "fa", "fa-star");
+    let star_5 = document.createElement("i");
+    star_5.classList.add("text-warning", "fa", "fa-star");
 
     // // Append the stars to the li and the li to the ul
     // stars_Li.appendChild(star_1);
