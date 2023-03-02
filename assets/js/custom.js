@@ -195,32 +195,32 @@ function createProducts(product) {
     card_Body.appendChild(title_Anchor);
 
     // // Create a ul for the brand and the product color
-    // let ul_2 = document.createElement("ul");
-    // ul_2.classList.add("list-unstyled", "justify-content-between", "d-flex", "mb-0", "w-100")
-    // let brand_Li = document.createElement("li");
-    // brand_Li.innerText = "Brand: " + product.brand;
-    // let color_Li = document.createElement("li");
-    // color_Li.classList.add("pt-2");
-    // let span_1 = document.createElement("span");
-    // span_1.classList.add(
-    //   "product-color-dot", "color-dot-red", "float-left", "rounded-circle", "ms-1"
-    // );
-    // let span_2 = document.createElement("span");
-    // span_2.classList.add(
-    //   "product-color-dot", "color-dot-blue", "float-left", "rounded-circle", "ms-1"
-    // );
-    // let span_3 = document.createElement("span");
-    // span_3.classList.add(
-    //   "product-color-dot", "color-dot-black", "float-left", "rounded-circle", "ms-1"
-    // );
-    // let span_4 = document.createElement("span");
-    // span_4.classList.add(
-    //   "product-color-dot", "color-dot-light", "float-left", "rounded-circle", "ms-1"
-    // );
-    // let span_5 = document.createElement("span");
-    // span_5.classList.add(
-    //   "product-color-dot", "color-dot-green", "float-left", "rounded-circle", "ms-1"
-    // );
+    let ul_2 = document.createElement("ul");
+    ul_2.classList.add("list-unstyled", "justify-content-between", "d-flex", "mb-0", "w-100")
+    let brand_Li = document.createElement("li");
+    brand_Li.innerText = "Brand: " + product.brand;
+    let color_Li = document.createElement("li");
+    color_Li.classList.add("pt-2");
+    let span_1 = document.createElement("span");
+    span_1.classList.add(
+      "product-color-dot", "color-dot-red", "float-left", "rounded-circle", "ms-1"
+    );
+    let span_2 = document.createElement("span");
+    span_2.classList.add(
+      "product-color-dot", "color-dot-blue", "float-left", "rounded-circle", "ms-1"
+    );
+    let span_3 = document.createElement("span");
+    span_3.classList.add(
+      "product-color-dot", "color-dot-black", "float-left", "rounded-circle", "ms-1"
+    );
+    let span_4 = document.createElement("span");
+    span_4.classList.add(
+      "product-color-dot", "color-dot-light", "float-left", "rounded-circle", "ms-1"
+    );
+    let span_5 = document.createElement("span");
+    span_5.classList.add(
+      "product-color-dot", "color-dot-green", "float-left", "rounded-circle", "ms-1"
+    );
 
     // // Append all the spans to the li and the li to the ul
     // color_Li.appendChild(span_1)
