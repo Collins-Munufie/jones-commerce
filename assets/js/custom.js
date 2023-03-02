@@ -375,9 +375,13 @@ function onmouseOver() {
 
 // SHOP SINGLE
 const details_Image = document.getElementById("product-detail");
+const carousel_Image = document.querySelectorAll(".carouse-image");
 
 var parameters = new URLSearchParams(window.location.search);
 var image_Src = parameters.get("image");
 
 details_Image.src = image_Src;
 
+carousel_Image.forEach(image => {
+    image.src = image_Src;
+})
