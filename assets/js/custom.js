@@ -253,9 +253,9 @@ function createProducts(product) {
     stars_Li.appendChild(star_5);
     stars_Ul.appendChild(stars_Li);
 
-    // // Append all the ul's to the card body
-    // card_Body.appendChild(ul_2);
-    // card_Body.appendChild(stars_Ul);
+    // Append all the ul's to the card body
+    card_Body.appendChild(ul_2);
+    card_Body.appendChild(stars_Ul);
 
     // // Create a p tag for the price and append it to the card body
     // let price = document.createElement("p");
