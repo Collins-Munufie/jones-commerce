@@ -185,14 +185,14 @@ function createProducts(product) {
 
     // Create the card body that will describe the product
 
-    // let card_Body = document.createElement("div");
-    // card_Body.classList.add("card-body");
-    // // Create the title anchor
-    // let title_Anchor = document.createElement("a");
-    // title_Anchor.classList.add("h3", "text-decoration-none");
-    // title_Anchor.href = '/shop-single.html';
-    // title_Anchor.innerText = product.title;
-    // card_Body.appendChild(title_Anchor);
+    let card_Body = document.createElement("div");
+    card_Body.classList.add("card-body");
+    // Create the title anchor
+    let title_Anchor = document.createElement("a");
+    title_Anchor.classList.add("h3", "text-decoration-none");
+    title_Anchor.href = '/shop-single.html';
+    title_Anchor.innerText = product.title;
+    card_Body.appendChild(title_Anchor);
 
     // // Create a ul for the brand and the product color
     // let ul_2 = document.createElement("ul");
