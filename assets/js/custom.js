@@ -376,12 +376,24 @@ function onmouseOver() {
 // SHOP SINGLE
 const details_Image = document.getElementById("product-detail");
 const carousel_Image = document.querySelectorAll(".carouse-image");
+const product_Title = document.getElementById("product-title")
+const product_Price = document.getElementById("product-price")
+const product_Rating = document.getElementById("product-rating")
+const product_Brand = document.getElementById("product-brand");
 
 var parameters = new URLSearchParams(window.location.search);
 var image_Src = parameters.get("image");
+var title_Param = parameters.get("title");
+var price_Param = parameters.get("price");
+var rating_Param = parameters.get("rating");
+var brand_Param = parameters.get("brand");
 
 details_Image.src = image_Src;
 
 carousel_Image.forEach(image => {
     image.src = image_Src;
 })
+product_Title.innerText = title_Param;
+product_Price.innerText = "$" + price_Param;
+product_Rating.innerText = "Rating " + rating_Param + "| 36 comments";
+product_Brand.innerText = brand_Param;
