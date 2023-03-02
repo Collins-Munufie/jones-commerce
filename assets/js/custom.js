@@ -257,14 +257,14 @@ function createProducts(product) {
     card_Body.appendChild(ul_2);
     card_Body.appendChild(stars_Ul);
 
-    // // Create a p tag for the price and append it to the card body
-    // let price = document.createElement("p");
-    // price.classList.add("text-center", "mb-0");
-    // price.innerText = "$" + product.price;
-    // card_Body.appendChild(price);
+    // Create a p tag for the price and append it to the card body
+    let price = document.createElement("p");
+    price.classList.add("text-center", "mb-0");
+    price.innerText = "$" + product.price;
+    card_Body.appendChild(price);
 
-    // // Append the card body to the car wrapper 
-    // wrapper_Card.appendChild(card_Body);
+    // Append the card body to the car wrapper 
+    wrapper_Card.appendChild(card_Body);
     col_Div.appendChild(wrapper_Card);
     products_row.appendChild(col_Div)
 }
