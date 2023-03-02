@@ -144,7 +144,7 @@ function createProducts(product) {
   // create the anchor inside the li element
   let anchor_1 = document.createElement("a");
   anchor_1.classList.add("btn", "btn-warning", "text-danger");
-  anchor_1.href = "/shop-single.html";
+  anchor_1.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
   // Create the icon inside the a tag
   let heart = document.createElement("i");
   heart.classList.add("far", "fa-heart");
@@ -154,7 +154,7 @@ function createProducts(product) {
   // create the anchor inside the li element
   let anchor_2 = document.createElement("a");
   anchor_2.classList.add("btn", "btn-warning", "text-danger");
-  anchor_2.href = "/shop-single.html";
+  anchor_2.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
   // Create the icon inside the a tag
   let eye = document.createElement("i");
   eye.classList.add("fa", "fa-eye");
@@ -164,7 +164,7 @@ function createProducts(product) {
   // create the anchor inside the li element
   let anchor_3 = document.createElement("a");
   anchor_3.classList.add("btn", "btn-warning", "text-danger");
-  anchor_3.href = "/shop-single.html";
+  anchor_3.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
   // Create the icon inside the a tag
   let shopping_Cart = document.createElement("i");
   shopping_Cart.classList.add("fas", "fa-cart-plus");
