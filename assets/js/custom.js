@@ -190,7 +190,7 @@ function createProducts(product) {
     // Create the title anchor
     let title_Anchor = document.createElement("a");
     title_Anchor.classList.add("h3", "text-decoration-none");
-    title_Anchor.href = '/shop-single.html';
+    title_Anchor.href =` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
     title_Anchor.innerText = product.title;
     card_Body.appendChild(title_Anchor);
 
@@ -376,5 +376,5 @@ function onmouseOver() {
   backgroundColor = "yellow";
 }
 
-// Shop single product
+
 
