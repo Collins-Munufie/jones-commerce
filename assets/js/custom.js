@@ -1,8 +1,5 @@
 // TABLE OF CONTENTS
 
-//
-
-
 // Shop
 const products_row = document.querySelector('.products-row')
 let productsUrl = "https://dummyjson.com/products";
@@ -376,5 +373,11 @@ function onmouseOver() {
   backgroundColor = "yellow";
 }
 
+// SHOP SINGLE
+const details_Image = document.getElementById("product-detail");
 
+var parameters = new URLSearchParams(window.location.search);
+var image_Src = parameters.get("image");
+
+details_Image.src = image_Src;
 
