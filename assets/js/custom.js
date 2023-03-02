@@ -245,13 +245,13 @@ function createProducts(product) {
     let star_5 = document.createElement("i");
     star_5.classList.add("text-warning", "fa", "fa-star");
 
-    // // Append the stars to the li and the li to the ul
-    // stars_Li.appendChild(star_1);
-    // stars_Li.appendChild(star_2);
-    // stars_Li.appendChild(star_3);
-    // stars_Li.appendChild(star_4);
-    // stars_Li.appendChild(star_5);
-    // stars_Ul.appendChild(stars_Li);
+    // Append the stars to the li and the li to the ul
+    stars_Li.appendChild(star_1);
+    stars_Li.appendChild(star_2);
+    stars_Li.appendChild(star_3);
+    stars_Li.appendChild(star_4);
+    stars_Li.appendChild(star_5);
+    stars_Ul.appendChild(stars_Li);
 
     // // Append all the ul's to the card body
     // card_Body.appendChild(ul_2);
