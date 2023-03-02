@@ -111,8 +111,165 @@ categoryGroups.forEach(itemGroup => {
     }
 })
 
-async function getProducts() {
+// A function that will create the products
+
+function createProducts(product) {
+  // Create a column for the product
+  let col_Div = document.createElement("div");
+  col_Div.classList.add("col-md-4");
+  // create a wrapper card for the products
+  let wrapper_Card = document.createElement("div");
+  wrapper_Card.classList.add("card", "mb-4", "product-wap", "rounded-0");
+  // Create the product card itself
+  let product_Card = document.createElement("div");
+  product_Card.classList.add("card", "rounded-0");
+  // Product Image
+  let product_Image = document.createElement("img");
+  product_Image.classList.add("card-img", "rounded-0", "img-fluid");
+    product_Image.src = product.thumbnail;
+  // Add image to the card
+  product_Card.appendChild(product_Image);
+  // Create the overlay div
+  let overlay_Div = document.createElement("div");
+  overlay_Div.classList.add(
+    "card-img-overlay",
+    "rounded-0",
+    "product-overlay",
+    "d-flex",
+    "align-items-center",
+    "justify-content-center"
+  );
+  // Create the ul tag
+  let ul = document.createElement("ul");
+  ul.classList.add("list-unstyled");
+  // Create the li items
+  let li_1 = document.createElement("li");
+  // create the anchor inside the li element
+  let anchor_1 = document.createElement("a");
+  anchor_1.classList.add("btn", "btn-warning", "text-danger");
+  anchor_1.href = "/shop-single.html";
+  // Create the icon inside the a tag
+  let heart = document.createElement("i");
+  heart.classList.add("far", "fa-heart");
+  anchor_1.appendChild(heart);
+  li_1.appendChild(anchor_1);
+  let li_2 = document.createElement("li");
+  // create the anchor inside the li element
+  let anchor_2 = document.createElement("a");
+  anchor_2.classList.add("btn", "btn-warning", "text-danger");
+  anchor_2.href = "/shop-single.html";
+  // Create the icon inside the a tag
+  let eye = document.createElement("i");
+  eye.classList.add("fa", "fa-eye");
+  anchor_2.appendChild(eye);
+  li_2.appendChild(anchor_2);
+  let li_3 = document.createElement("li");
+  // create the anchor inside the li element
+  let anchor_3 = document.createElement("a");
+  anchor_3.classList.add("btn", "btn-warning", "text-danger");
+  anchor_3.href = "/shop-single.html";
+  // Create the icon inside the a tag
+  let shopping_Cart = document.createElement("i");
+  shopping_Cart.classList.add("fas", "fa-cart-plus");
+  anchor_3.appendChild(shopping_Cart);
+    li_3.appendChild(anchor_3);
     
+    // Append the li's to the ul, ul to the overlay div, overlay div to the product card and product card to the wrapper card
+    ul.appendChild(li_1);
+    ul.appendChild(li_2);
+    ul.appendChild(li_3);
+    overlay_Div.appendChild(ul);
+    product_Card.appendChild(overlay_Div);
+    wrapper_Card.appendChild(product_Card);
+
+
+    // Create the card body that will describe the product
+
+    // let card_Body = document.createElement("div");
+    // card_Body.classList.add("card-body");
+    // // Create the title anchor
+    // let title_Anchor = document.createElement("a");
+    // title_Anchor.classList.add("h3", "text-decoration-none");
+    // title_Anchor.href = '/shop-single.html';
+    // title_Anchor.innerText = product.title;
+    // card_Body.appendChild(title_Anchor);
+
+    // // Create a ul for the brand and the product color
+    // let ul_2 = document.createElement("ul");
+    // ul_2.classList.add("list-unstyled", "justify-content-between", "d-flex", "mb-0", "w-100")
+    // let brand_Li = document.createElement("li");
+    // brand_Li.innerText = "Brand: " + product.brand;
+    // let color_Li = document.createElement("li");
+    // color_Li.classList.add("pt-2");
+    // let span_1 = document.createElement("span");
+    // span_1.classList.add(
+    //   "product-color-dot", "color-dot-red", "float-left", "rounded-circle", "ms-1"
+    // );
+    // let span_2 = document.createElement("span");
+    // span_2.classList.add(
+    //   "product-color-dot", "color-dot-blue", "float-left", "rounded-circle", "ms-1"
+    // );
+    // let span_3 = document.createElement("span");
+    // span_3.classList.add(
+    //   "product-color-dot", "color-dot-black", "float-left", "rounded-circle", "ms-1"
+    // );
+    // let span_4 = document.createElement("span");
+    // span_4.classList.add(
+    //   "product-color-dot", "color-dot-light", "float-left", "rounded-circle", "ms-1"
+    // );
+    // let span_5 = document.createElement("span");
+    // span_5.classList.add(
+    //   "product-color-dot", "color-dot-green", "float-left", "rounded-circle", "ms-1"
+    // );
+
+    // // Append all the spans to the li and the li to the ul
+    // color_Li.appendChild(span_1)
+    // color_Li.appendChild(span_2)
+    // color_Li.appendChild(span_3)
+    // color_Li.appendChild(span_4)
+    // color_Li.appendChild(span_5)
+    // ul_2.appendChild(color_Li);
+
+    // // Create a ul for the stars
+    // let stars_Ul = document.createElement("ul")
+    // stars_Ul.classList.add("list-unstyled", "d-flex", "justify-content-center", "mb-1");
+    // let stars_Li = document.createElement("li");
+    // let star_1 = document.createElement("i");
+    // star_1.classList.add("text-warning", "fa", "fa-star");
+    // let star_2 = document.createElement("i");
+    // star_2.classList.add("text-warning", "fa", "fa-star");
+    // let star_3 = document.createElement("i");
+    // star_3.classList.add("text-warning", "fa", "fa-star");
+    // let star_4 = document.createElement("i");
+    // star_4.classList.add("text-warning", "fa", "fa-star");
+    // let star_5 = document.createElement("i");
+    // star_5.classList.add("text-warning", "fa", "fa-star");
+
+    // // Append the stars to the li and the li to the ul
+    // stars_Li.appendChild(star_1);
+    // stars_Li.appendChild(star_2);
+    // stars_Li.appendChild(star_3);
+    // stars_Li.appendChild(star_4);
+    // stars_Li.appendChild(star_5);
+    // stars_Ul.appendChild(stars_Li);
+
+    // // Append all the ul's to the card body
+    // card_Body.appendChild(ul_2);
+    // card_Body.appendChild(stars_Ul);
+
+    // // Create a p tag for the price and append it to the card body
+    // let price = document.createElement("p");
+    // price.classList.add("text-center", "mb-0");
+    // price.innerText = "$" + product.price;
+    // card_Body.appendChild(price);
+
+    // // Append the card body to the car wrapper 
+    // wrapper_Card.appendChild(card_Body);
+    col_Div.appendChild(wrapper_Card);
+    products_row.appendChild(col_Div)
+}
+
+async function getProducts() {
     const req = await fetch(productsUrl);
     const res = await req.json();
     const products = res.products;
@@ -125,45 +282,7 @@ async function getProducts() {
             product.title === "cereals muesli fruit nuts"
           )
         ) {
-          products_row.innerHTML += `
-        <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="${product.thumbnail}">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-warning text-danger" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-warning text-danger mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-warning text-danger mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">${product.title}</a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>Brand: ${product.brand}</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$${product.price}</p>
-                            </div>
-                        </div>
-                    </div>
-        `;
+         createProducts(product)
         }
     });
 }
@@ -176,46 +295,8 @@ async function moreProducts() {
   const products = res.products;
   console.log(products);
   products.forEach((product) => {
-    console.log(product.title);
-      products_row.innerHTML += `
-        <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="${product.thumbnail}">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-warning text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-warning text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-warning text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="shop-single.html" class="h3 text-decoration-none">${product.title}</a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>Brand: ${product.brand}</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$${product.price}</p>
-                            </div>
-                        </div>
-                    </div>
-        `; 
+      console.log(product.title);
+      createProducts(product)
   });
 }
 function menShirt() {
@@ -297,5 +378,3 @@ function onmouseOver() {
 
 // Shop single product
 
-const cartNumber = document.querySelector(".cart-number");
-cartNumber.textContent = Number(cartNumber.textContent) + 6;
