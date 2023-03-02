@@ -296,73 +296,76 @@ async function moreProducts() {
       createProducts(product)
   });
 }
+function urlFunction(category) {
+    productsUrl = `https://dummyjson.com/products/category/${category}`;
+}
 function menShirt() {
-    productsUrl = "https://dummyjson.com/products/category/mens-shirts";
+    urlFunction("mens-shirts")
     moreProducts();
 }
 function menWatches() {
-    productsUrl = "https://dummyjson.com/products/category/mens-watches";
+   urlFunction("mens-watches");
     moreProducts();
 }
 function womenShoes() {
-    productsUrl = "https://dummyjson.com/products/category/womens-shoes";
+    urlFunction("womens-shoes");
     moreProducts();
 }
 function womenWatches() {
-    productsUrl = "https://dummyjson.com/products/category/womens-watches";
+    urlFunction("womens-watches");
     moreProducts();
 }
 function womenBags() {
-    productsUrl = "https://dummyjson.com/products/category/womens-bags";
+    urlFunction("womens-bags");
     moreProducts();
 }
 function womenJewelly() {
-    productsUrl = "https://dummyjson.com/products/category/womens-jewellery";
+   urlFunction("womens-jewellery");
     moreProducts();
 }
 function tops() {
-    productsUrl = "https://dummyjson.com/products/category/tops";
+   urlFunction("tops");
     moreProducts();
 }
 function automotive() {
-    productsUrl = "https://dummyjson.com/products/category/automotive";
+    urlFunction("automotive");
     moreProducts();
 }
 function nextOne() {
     products_row.textContent = '';
-    productsUrl = "https://dummyjson.com/products/category/motorcycle";
+   urlFunction("motorcycle");
     moreProducts();
     automotive();
     lighting();
 }
 function nextTwo() {
     products_row.innerHTML = '';
-    productsUrl = "https://dummyjson.com/products/category/sunglasses";
+    urlFunction("sunglasses");
     moreProducts();
     furniture();
 }
 function furniture() {
-    productsUrl = "https://dummyjson.com/products/category/furniture";
+    urlFunction("furniture");
     moreProducts();
 }
 function lighting() {
-    productsUrl = "https://dummyjson.com/products/category/lighting";
+   urlFunction("lighting");
     moreProducts();
 }
 function smartphones() {
-    productsUrl = "https://dummyjson.com/products/category/smartphones";
+    urlFunction("smartphones");
     moreProducts();
 }
 function laptops() {
-    productsUrl = "https://dummyjson.com/products/category/laptops";
+    urlFunction("laptops");
     moreProducts();
 }
 function skincare() {
-    productsUrl = "https://dummyjson.com/products/category/skincare";
+   urlFunction("skincare");
     moreProducts();
 }
 function sunglasses() {
-    productsUrl = "https://dummyjson.com/products/category/sunglasses";
+   urlFunction("sunglasses");
     moreProducts();
    
 }
