@@ -222,13 +222,13 @@ function createProducts(product) {
       "product-color-dot", "color-dot-green", "float-left", "rounded-circle", "ms-1"
     );
 
-    // // Append all the spans to the li and the li to the ul
-    // color_Li.appendChild(span_1)
-    // color_Li.appendChild(span_2)
-    // color_Li.appendChild(span_3)
-    // color_Li.appendChild(span_4)
-    // color_Li.appendChild(span_5)
-    // ul_2.appendChild(color_Li);
+    // Append all the spans to the li and the li to the ul
+    color_Li.appendChild(span_1)
+    color_Li.appendChild(span_2)
+    color_Li.appendChild(span_3)
+    color_Li.appendChild(span_4)
+    color_Li.appendChild(span_5)
+    ul_2.appendChild(color_Li);
 
     // // Create a ul for the stars
     // let stars_Ul = document.createElement("ul")
