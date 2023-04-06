@@ -123,6 +123,7 @@ function createProducts(product) {
   // Product Image
   let product_Image = document.createElement("img");
   product_Image.classList.add("card-img", "rounded-0", "img-fluid");
+  product_Image.style.height = "200px";
     product_Image.src = product.thumbnail;
   // Add image to the card
   product_Card.appendChild(product_Image);
@@ -273,14 +274,7 @@ async function getProducts() {
      console.log(products);
      products.forEach((product) => {
        console.log(product.title);
-       if (
-         !(
-           product.title === "Handcraft Chinese style" ||
-           product.title === "cereals muesli fruit nuts"
-         )
-       ) {
          createProducts(product);
-       }
      });
   } else {
     const req = await fetch(productsUrl);
@@ -288,14 +282,7 @@ async function getProducts() {
     localStorage.setItem(productsUrl, JSON.stringify(results));
     const products = results.products;
     products.forEach((product) => {
-      if (
-        !(
-          product.title === "Handcraft Chinese style" ||
-          product.title === "cereals muesli fruit nuts"
-        )
-      ) {
         createProducts(product);
-      }
     })
   }
     
@@ -308,7 +295,15 @@ async function moreProducts() {
   if (results) {
     const products = results.products;
     products.forEach((product) => {
-      createProducts(product)
+       if (
+        !(
+          product.title === "Handcraft Chinese style" ||
+          product.title === "cereals muesli fruit nuts"
+        )
+       ) {
+         createProducts(product);
+      }
+      
     })
   } else {
     const req = await fetch(productsUrl);
@@ -317,7 +312,15 @@ async function moreProducts() {
     const products = results.products;
     products.forEach((product) => {
       console.log(product.title);
-      createProducts(product);
+       if (
+         !(
+           product.title === "Handcraft Chinese style" ||
+           product.title === "cereals muesli fruit nuts"
+         )
+       ) {
+         createProducts(product);
+       }
+         
     });
   }
   
