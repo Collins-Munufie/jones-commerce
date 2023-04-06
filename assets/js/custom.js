@@ -267,35 +267,62 @@ function createProducts(product) {
 }
 
 async function getProducts() {
+  let results = JSON.parse(localStorage.getItem(productsUrl));
+  if (results) {
+     const products = results.products;
+     console.log(products);
+     products.forEach((product) => {
+       console.log(product.title);
+       if (
+         !(
+           product.title === "Handcraft Chinese style" ||
+           product.title === "cereals muesli fruit nuts"
+         )
+       ) {
+         createProducts(product);
+       }
+     });
+  } else {
     const req = await fetch(productsUrl);
-    const res = await req.json();
-    const products = res.products;
-    console.log(products)
-    products.forEach(product => {
-        console.log(product.title);
-        if (
-          !(
-            product.title === "Handcraft Chinese style" ||
-            product.title === "cereals muesli fruit nuts"
-          )
-        ) {
-         createProducts(product)
-        }
-    });
+    results = await req.json();
+    localStorage.setItem(productsUrl, JSON.stringify(results));
+    const products = results.products;
+    products.forEach((product) => {
+      if (
+        !(
+          product.title === "Handcraft Chinese style" ||
+          product.title === "cereals muesli fruit nuts"
+        )
+      ) {
+        createProducts(product);
+      }
+    })
+  }
+    
 }
 getProducts();
 tops()
 
 async function moreProducts() {
-  const req = await fetch(productsUrl);
-  const res = await req.json();
-  const products = res.products;
-  console.log(products);
-  products.forEach((product) => {
-      console.log(product.title);
+  let results = JSON.parse(localStorage.getItem(productsUrl));
+  if (results) {
+    const products = results.products;
+    products.forEach((product) => {
       createProducts(product)
-  });
+    })
+  } else {
+    const req = await fetch(productsUrl);
+    results = await req.json();
+    localStorage.setItem(productsUrl, JSON.stringify(results));
+    const products = results.products;
+    products.forEach((product) => {
+      console.log(product.title);
+      createProducts(product);
+    });
+  }
+  
 }
+
 function urlFunction(category) {
     productsUrl = `https://dummyjson.com/products/category/${category}`;
 }
