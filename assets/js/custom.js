@@ -268,8 +268,10 @@ function createProducts(product) {
 }
 
 async function getProducts() {
+  // Check is products data are already cached in the localStarage
   let results = JSON.parse(localStorage.getItem(productsUrl));
   if (results) {
+    // Use the cached data
      const products = results.products;
      console.log(products);
      products.forEach((product) => {
@@ -277,6 +279,7 @@ async function getProducts() {
          createProducts(product);
      });
   } else {
+    // Fetch data from the api
     const req = await fetch(productsUrl);
     results = await req.json();
     localStorage.setItem(productsUrl, JSON.stringify(results));
@@ -290,113 +293,113 @@ async function getProducts() {
 getProducts();
 tops()
 
-async function moreProducts() {
-  let results = JSON.parse(localStorage.getItem(productsUrl));
-  if (results) {
-    const products = results.products;
-    products.forEach((product) => {
-       if (
-        !(
-          product.title === "Handcraft Chinese style" ||
-          product.title === "cereals muesli fruit nuts"
-        )
-       ) {
-         createProducts(product);
-      }
+// async function moreProducts() {
+//   let results = JSON.parse(localStorage.getItem(productsUrl));
+//   if (results) {
+//     const products = results.products;
+//     products.forEach((product) => {
+//        if (
+//         !(
+//           product.title === "Handcraft Chinese style" ||
+//           product.title === "cereals muesli fruit nuts"
+//         )
+//        ) {
+//          createProducts(product);
+//       }
       
-    })
-  } else {
-    const req = await fetch(productsUrl);
-    results = await req.json();
-    localStorage.setItem(productsUrl, JSON.stringify(results));
-    const products = results.products;
-    products.forEach((product) => {
-      console.log(product.title);
-       if (
-         !(
-           product.title === "Handcraft Chinese style" ||
-           product.title === "cereals muesli fruit nuts"
-         )
-       ) {
-         createProducts(product);
-       }
+//     })
+//   } else {
+//     const req = await fetch(productsUrl);
+//     results = await req.json();
+//     localStorage.setItem(productsUrl, JSON.stringify(results));
+//     const products = results.products;
+//     products.forEach((product) => {
+//       console.log(product.title);
+//        if (
+//          !(
+//            product.title === "Handcraft Chinese style" ||
+//            product.title === "cereals muesli fruit nuts"
+//          )
+//        ) {
+//          createProducts(product);
+//        }
          
-    });
-  }
+//     });
+//   }
   
-}
+// }
 
 function urlFunction(category) {
     productsUrl = `https://dummyjson.com/products/category/${category}`;
 }
 function menShirt() {
     urlFunction("mens-shirts")
-    moreProducts();
+   getProducts();
 }
 function menWatches() {
    urlFunction("mens-watches");
-    moreProducts();
+   getProducts();
 }
 function womenShoes() {
     urlFunction("womens-shoes");
-    moreProducts();
+   getProducts();
 }
 function womenWatches() {
     urlFunction("womens-watches");
-    moreProducts();
+   getProducts();
 }
 function womenBags() {
     urlFunction("womens-bags");
-    moreProducts();
+   getProducts();
 }
 function womenJewelly() {
    urlFunction("womens-jewellery");
-    moreProducts();
+   getProducts();
 }
 function tops() {
    urlFunction("tops");
-    moreProducts();
+   getProducts();
 }
 function automotive() {
     urlFunction("automotive");
-    moreProducts();
+   getProducts();
 }
 function nextOne() {
     products_row.textContent = '';
    urlFunction("motorcycle");
-    moreProducts();
+   getProducts();
     automotive();
     lighting();
 }
 function nextTwo() {
     products_row.innerHTML = '';
     urlFunction("sunglasses");
-    moreProducts();
+   getProducts();
     furniture();
 }
 function furniture() {
     urlFunction("furniture");
-    moreProducts();
+   getProducts();
 }
 function lighting() {
    urlFunction("lighting");
-    moreProducts();
+   getProducts();
 }
 function smartphones() {
     urlFunction("smartphones");
-    moreProducts();
+   getProducts();
 }
 function laptops() {
     urlFunction("laptops");
-    moreProducts();
+   getProducts();
 }
 function skincare() {
    urlFunction("skincare");
-    moreProducts();
+   getProducts();
 }
 function sunglasses() {
    urlFunction("sunglasses");
-    moreProducts();
+   getProducts();
    
 }
 
