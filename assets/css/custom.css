@@ -11,3 +11,9 @@ body{
     overflow-x: hidden;
    
 }
+.text-default{
+color: #FF6347 !important;
+}
+.nav-link:hover{
+    color: #FF6347 !important;
+}

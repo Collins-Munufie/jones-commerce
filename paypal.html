@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container text-center pt-4">
+        <div class="row">
+            <div class="col ms-auto me-auto col-lg-6">
+                <div id="paypal-button-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=Ad-A-PsMrXP0S5za2U0Jfvy41Lvd1RtU_mS5bJ3mPivOlJLecuJTKNyNq5EvUt_4eId5UxRPILVhlJpu"></script>
+<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: '0.01' // Set the amount to charge
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Transaction completed by ' + details.payer.name.given_name);
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
+
+</body>
+</html>

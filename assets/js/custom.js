@@ -1,5 +1,7 @@
 // TABLE OF CONTENTS
 
+
+
 // Shop
 const products_row = document.querySelector('.products-row')
 let productsUrl = "https://dummyjson.com/products";
@@ -7,6 +9,7 @@ const categories = document.querySelectorAll('.cat')
 const nextButtons = document.querySelectorAll('.next')
 const categoryGroups = document.querySelectorAll(".categories-product");
 const sizeBtn = document.querySelectorAll(".btn-size");
+const searchButton = document.querySelector('.fa-search')
 
 
 sizeBtn.forEach(size => {
@@ -21,7 +24,7 @@ categories.forEach(button => {
     if (button.textContent.includes('All')) {
         button.addEventListener('click', function () {
            products_row.innerHTML = "";
-           productsUrl = "https://dummyjson.com/products";
+           productsUrl = "https://dummyjson.com/products/?Limit=0";
            getProducts();         
         });
         nextButtons.forEach(nextBtn => {
@@ -141,45 +144,23 @@ function createProducts(product) {
   let ul = document.createElement("ul");
   ul.classList.add("list-unstyled");
   // Create the li items
-  let li_1 = document.createElement("li");
-  // create the anchor inside the li element
-  let anchor_1 = document.createElement("a");
-  anchor_1.classList.add("btn", "btn-warning", "text-danger");
-  anchor_1.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
-  // Create the icon inside the a tag
+  let icons = ['far fa-heart', 'far fa-eye', 'fas fa-cart-plus'];
+  icons.forEach(iconClass => {
+    let list = document.createElement("li");
+    let link = document.createElement("a");
+    link.classList.add("btn", "btn-warning", "text-danger");
+    link.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
+    // Create the icon inside the a tag
   let heart = document.createElement("i");
-  heart.classList.add("far", "fa-heart");
-  anchor_1.appendChild(heart);
-  li_1.appendChild(anchor_1);
-  let li_2 = document.createElement("li");
-  // create the anchor inside the li element
-  let anchor_2 = document.createElement("a");
-  anchor_2.classList.add("btn", "btn-warning", "text-danger");
-  anchor_2.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
-  // Create the icon inside the a tag
-  let eye = document.createElement("i");
-  eye.classList.add("fa", "fa-eye");
-  anchor_2.appendChild(eye);
-  li_2.appendChild(anchor_2);
-  let li_3 = document.createElement("li");
-  // create the anchor inside the li element
-  let anchor_3 = document.createElement("a");
-  anchor_3.classList.add("btn", "btn-warning", "text-danger");
-  anchor_3.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
-  // Create the icon inside the a tag
-  let shopping_Cart = document.createElement("i");
-  shopping_Cart.classList.add("fas", "fa-cart-plus");
-  anchor_3.appendChild(shopping_Cart);
-    li_3.appendChild(anchor_3);
-    
-    // Append the li's to the ul, ul to the overlay div, overlay div to the product card and product card to the wrapper card
-    ul.appendChild(li_1);
-    ul.appendChild(li_2);
-    ul.appendChild(li_3);
+  heart.className = iconClass;
+  link.appendChild(heart);
+  list.appendChild(link);
+  ul.appendChild(list)
+  })
+  // Append the respective elements to their parents
     overlay_Div.appendChild(ul);
     product_Card.appendChild(overlay_Div);
     wrapper_Card.appendChild(product_Card);
-
 
     // Create the card body that will describe the product
 
@@ -268,7 +249,7 @@ function createProducts(product) {
 }
 
 async function getProducts() {
-  // Check is products data are already cached in the localStarage
+  // Check if products data are already cached in the localStarage
   let results = JSON.parse(localStorage.getItem(productsUrl));
   if (results) {
     // Use the cached data
@@ -293,41 +274,6 @@ async function getProducts() {
 getProducts();
 tops()
 
-// async function moreProducts() {
-//   let results = JSON.parse(localStorage.getItem(productsUrl));
-//   if (results) {
-//     const products = results.products;
-//     products.forEach((product) => {
-//        if (
-//         !(
-//           product.title === "Handcraft Chinese style" ||
-//           product.title === "cereals muesli fruit nuts"
-//         )
-//        ) {
-//          createProducts(product);
-//       }
-      
-//     })
-//   } else {
-//     const req = await fetch(productsUrl);
-//     results = await req.json();
-//     localStorage.setItem(productsUrl, JSON.stringify(results));
-//     const products = results.products;
-//     products.forEach((product) => {
-//       console.log(product.title);
-//        if (
-//          !(
-//            product.title === "Handcraft Chinese style" ||
-//            product.title === "cereals muesli fruit nuts"
-//          )
-//        ) {
-//          createProducts(product);
-//        }
-         
-//     });
-//   }
-  
-// }
 
 function urlFunction(category) {
     productsUrl = `https://dummyjson.com/products/category/${category}`;
@@ -436,3 +382,17 @@ product_Price.innerText = "$" + price_Param;
 product_Rating.innerText = "Rating " + rating_Param + "| 36 comments";
 product_Brand.innerText = brand_Param;
 product_Description.innerText = description_Param;
+
+// The Searching Functionality
+
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const input_search = document.getElementById("inputMobileSearch")
+    input_search.addEventListener('keypress', async (event) =>{
+      if(event.key === "Enter"){
+        alert("Hello")
+      }
+      
+    })
+  })
+  
