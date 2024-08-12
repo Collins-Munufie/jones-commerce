@@ -149,7 +149,7 @@ function createProducts(product) {
     let list = document.createElement("li");
     let link = document.createElement("a");
     link.classList.add("btn", "btn-warning", "text-danger");
-    link.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
+    link.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}&warantyInfo=${product.warrantyInformation}&shippingInfo=${product.shippingInformation}&returnPolicy=${product.returnPolicy}&weight=${product.weight}&discountPercentage=${product.discountPercentage}&availabilityStatus=${product.availabilityStatus}`;
     // Create the icon inside the a tag
   let heart = document.createElement("i");
   heart.className = iconClass;
@@ -169,7 +169,7 @@ function createProducts(product) {
     // Create the title anchor
     let title_Anchor = document.createElement("a");
     title_Anchor.classList.add("h3", "text-decoration-none");
-    title_Anchor.href =` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}`;
+    title_Anchor.href =` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}&warantyInfo=${product.warrantyInformation}&shippingInfo=${product.shippingInformation}&returnPolicy=${product.returnPolicy}&weight=${product.weight}&discountPercentage=${product.discountPercentage}&availabilityStatus=${product.availabilityStatus}`;
     title_Anchor.innerText = product.title;
     card_Body.appendChild(title_Anchor);
 
@@ -363,6 +363,15 @@ const product_Price = document.getElementById("product-price")
 const product_Rating = document.getElementById("product-rating")
 const product_Brand = document.getElementById("product-brand");
 const product_Description = document.getElementById("product-description");
+const availabilityStatus = document.querySelector('.availability-status');
+const returnPolicy = document.querySelector('.return-policy')
+const discountPercentage = document.querySelector('.discount-percent')
+const weight = document.querySelector('.weight')
+const warantyInfo = document.querySelector('.waranty-info')
+const shippingInfo = document.querySelector('.shipping-info')
+
+
+
 
 var parameters = new URLSearchParams(window.location.search);
 var image_Src = parameters.get("image");
@@ -371,6 +380,13 @@ var price_Param = parameters.get("price");
 var rating_Param = parameters.get("rating");
 var brand_Param = parameters.get("brand");
 var description_Param = parameters.get("description");
+var availability = parameters.get('availabilityStatus');
+var waranty = parameters.get('warantyInfo');
+var product_weight = parameters.get('weight');
+var return_policy = parameters.get('returnPolicy');
+var discount = parameters.get('discountPercentage');
+var shipping = parameters.get('shippingInfo');
+
 
 details_Image.src = image_Src;
 
@@ -379,9 +395,15 @@ carousel_Image.forEach(image => {
 })
 product_Title.innerText = title_Param;
 product_Price.innerText = "$" + price_Param;
-product_Rating.innerText = "Rating " + rating_Param + "| 36 comments";
+product_Rating.innerText = "Rating " + rating_Param + " | 36 comments";
 product_Brand.innerText = brand_Param;
 product_Description.innerText = description_Param;
+availabilityStatus.textContent += availability;
+warantyInfo.textContent += waranty;
+weight.textContent += product_weight;
+returnPolicy.textContent += return_policy;
+discountPercentage.textContent += discount;
+shippingInfo.textContent += shipping;
 
 // The Searching Functionality
 

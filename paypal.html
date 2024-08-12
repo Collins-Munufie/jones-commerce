@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    
+    <h1 class="hello-text"></h1>
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=Ad-A-PsMrXP0S5za2U0Jfvy41Lvd1RtU_mS5bJ3mPivOlJLecuJTKNyNq5EvUt_4eId5UxRPILVhlJpu"></script>
 <script>
@@ -36,6 +36,9 @@
       });
     }
   }).render('#paypal-button-container');
+
+  let text = document.querySelector('.hello-text')
+  text.innerHTML += 'Hello'
 </script>
 
 </body>
