@@ -12,8 +12,14 @@ body{
    
 }
 .text-default{
-color: #FF6347 !important;
+color: #F39C12 !important;
 }
 .nav-link:hover{
-    color: #FF6347 !important;
+    color: #F39C12 !important;
+}
+.btn-default{
+    background-color: #F39C12 !important;
+}
+.bg-default{
+    background-color: #F39C12 !important;
 }

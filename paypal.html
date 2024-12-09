@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/custom.css">
+    <title>Make Paymentt</title>
 </head>
-<body>
-    <div class="container text-center pt-4">
+<body class="bdy">
+        
+    <div style="margin-top: 200px;" class="container text-center pt-4">
         <div class="row">
             <div class="col ms-auto me-auto col-lg-6">
                 <div id="paypal-button-container">
@@ -16,16 +18,19 @@
             </div>
         </div>
     </div>
-    <h1 class="hello-text"></h1>
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=Ad-A-PsMrXP0S5za2U0Jfvy41Lvd1RtU_mS5bJ3mPivOlJLecuJTKNyNq5EvUt_4eId5UxRPILVhlJpu"></script>
 <script>
+
+    let parameters = new URLSearchParams(window.location.search)
+    let price = parameters.get('price_param')
+    price = Number(price)
   paypal.Buttons({
     createOrder: function(data, actions) {
       return actions.order.create({
         purchase_units: [{
           amount: {
-            value: '0.01' // Set the amount to charge
+            value: 149.9 // Set the amount to charge
           }
         }]
       });
@@ -37,8 +42,6 @@
     }
   }).render('#paypal-button-container');
 
-  let text = document.querySelector('.hello-text')
-  text.innerHTML += 'Hello'
 </script>
 
 </body>

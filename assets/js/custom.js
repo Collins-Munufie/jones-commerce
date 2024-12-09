@@ -1,15 +1,15 @@
 // TABLE OF CONTENTS
 
 
-
 // Shop
-const products_row = document.querySelector('.products-row')
+const products_row = document.querySelector('.products-row');
 let productsUrl = "https://dummyjson.com/products";
 const categories = document.querySelectorAll('.cat')
 const nextButtons = document.querySelectorAll('.next')
 const categoryGroups = document.querySelectorAll(".categories-product");
 const sizeBtn = document.querySelectorAll(".btn-size");
 const searchButton = document.querySelector('.fa-search')
+const relatedCarousel = document.getElementById('carousel-related-product')
 
 
 sizeBtn.forEach(size => {
@@ -80,7 +80,7 @@ categoryGroups.forEach(itemGroup => {
     if (itemGroup.textContent.includes("Furnitures")) {
         itemGroup.addEventListener("click", function () {
         products_row.textContent = "";
-        furniture();
+        automotive();
       });
     } else if (itemGroup.textContent.includes("Skincare")) {
       itemGroup.addEventListener("click", function () {
@@ -108,6 +108,11 @@ categoryGroups.forEach(itemGroup => {
           laptops();
           smartphones();
       });
+    }else if (itemGroup.textContent.includes("Beauty")) {
+      itemGroup.addEventListener("click", function () {
+        products_row.textContent = "";
+          beauty()
+      });
     }
 })
 
@@ -116,7 +121,7 @@ categoryGroups.forEach(itemGroup => {
 function createProducts(product) {
   // Create a column for the product
   let col_Div = document.createElement("div");
-  col_Div.classList.add("col-md-4");
+  col_Div.classList.add("col-md-3");
   // create a wrapper card for the products
   let wrapper_Card = document.createElement("div");
   wrapper_Card.classList.add("card", "mb-4", "product-wap", "rounded-0");
@@ -151,9 +156,9 @@ function createProducts(product) {
     link.classList.add("btn", "btn-warning", "text-danger");
     link.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}&warantyInfo=${product.warrantyInformation}&shippingInfo=${product.shippingInformation}&returnPolicy=${product.returnPolicy}&weight=${product.weight}&discountPercentage=${product.discountPercentage}&availabilityStatus=${product.availabilityStatus}`;
     // Create the icon inside the a tag
-  let heart = document.createElement("i");
-  heart.className = iconClass;
-  link.appendChild(heart);
+  let icon = document.createElement("i");
+  icon.className = iconClass;
+  link.appendChild(icon);
   list.appendChild(link);
   ul.appendChild(list)
   })
@@ -272,7 +277,6 @@ async function getProducts() {
     
 }
 getProducts();
-tops()
 
 
 function urlFunction(category) {
@@ -348,6 +352,10 @@ function sunglasses() {
    getProducts();
    
 }
+function beauty(){
+  urlFunction("beauty");
+  getProducts()
+}
 
 
 
@@ -386,6 +394,9 @@ var product_weight = parameters.get('weight');
 var return_policy = parameters.get('returnPolicy');
 var discount = parameters.get('discountPercentage');
 var shipping = parameters.get('shippingInfo');
+var productCategory = parameters.get('category')
+
+console.log(productCategory)
 
 
 details_Image.src = image_Src;
@@ -417,4 +428,143 @@ shippingInfo.textContent += shipping;
       
     })
   })
+
+ console.log(productCategory)
   
+  //  A function that will return the related products based on the type of the product the user clicks on
+
+ //  A functionn that will create the related products
+
+
+// async function createRelatedProduct(){
+//   const request = await fetch(`https://dummyjson.com/products/category/${productCategory}`);
+//   results = await request.json();
+//     localStorage.setItem(`https://dummyjson.com/products/category/${productCategory}`, JSON.stringify(results));
+//     const products = results.products;
+//     console.log(products)
+//     products.forEach(product =>{
+//       let mainDiv = document.createElement('div');
+//       mainDiv.className = 'p-2 pb-3';
+      
+//       // Create the product card
+//       let productWap = document.createElement('div');
+//       productWap.className = 'product-wap card rounded-0';
+      
+//       // Create the image card
+//       let card = document.createElement('div');
+//       card.className = 'card rounded-0';
+      
+//       // Add image
+//       let img = document.createElement('img');
+//       img.className = 'card-img related-image rounded-0 img-fluid';
+//       img.src = product.thumbnail;
+//       card.appendChild(img);
+      
+//       // Create the overlay div
+//       let overlay = document.createElement('div');
+//       overlay.className = 'card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center';
+      
+//       // Create the list inside the overlay
+//       let overlayList = document.createElement('ul');
+//       overlayList.className = 'list-unstyled';
+      
+//       // Create list items with buttons and icons
+//       let icons = ['far fa-heart', 'far fa-eye', 'fas fa-cart-plus'];
+//       icons.forEach(iconClass => {
+//           let listItem = document.createElement('li');
+//           let link = document.createElement('a');
+//           link.className = 'btn btn-warning text-danger mt-2';
+//           link.href = ` /shop-single.html?image=${product.thumbnail}&title=${product.title}&brand=${product.brand}&description=${product.description}&rating=${product.rating}&price=${product.price}&category=${product.category}&stock=${product.stock}&warantyInfo=${product.warrantyInformation}&shippingInfo=${product.shippingInformation}&returnPolicy=${product.returnPolicy}&weight=${product.weight}&discountPercentage=${product.discountPercentage}&availabilityStatus=${product.availabilityStatus}`;
+//           let icon = document.createElement('i');
+//           icon.className = iconClass;
+//           link.appendChild(icon);
+//           listItem.appendChild(link);
+//           overlayList.appendChild(listItem);
+//       });
+      
+//       overlay.appendChild(overlayList);
+//       card.appendChild(overlay);
+      
+//       // Add the image card to the product card
+//       productWap.appendChild(card);
+      
+//       // Create the card body
+//       let cardBody = document.createElement('div');
+//       cardBody.className = 'card-body';
+      
+//       // Add the product name link
+//       let productLink = document.createElement('a');
+//       productLink.href = 'shop-single.html';
+//       productLink.className = 'h3 text-decoration-none';
+//       productLink.textContent = product.title;
+//       cardBody.appendChild(productLink);
+      
+//       // Create the size and color options list
+//       let sizeColorList = document.createElement('ul');
+//       sizeColorList.className = 'w-100 list-unstyled d-flex justify-content-between mb-0';
+      
+//       let sizeListItem = document.createElement('li');
+//       sizeListItem.textContent = 'M/L/X/XL';
+//       sizeColorList.appendChild(sizeListItem);
+      
+//       let colorListItem = document.createElement('li');
+//       colorListItem.className = 'pt-2';
+      
+//       let colors = ['red', 'blue', 'black', 'light', 'green'];
+//       colors.forEach(color => {
+//           let colorDot = document.createElement('span');
+//           colorDot.className = `product-color-dot color-dot-${color} float-left rounded-circle ml-1`;
+//           colorListItem.appendChild(colorDot);
+//       });
+      
+//       sizeColorList.appendChild(colorListItem);
+//       cardBody.appendChild(sizeColorList);
+      
+//       // Create the rating stars list
+//       let ratingList = document.createElement('ul');
+//       ratingList.className = 'list-unstyled d-flex justify-content-center mb-1';
+      
+//       let starListItem = document.createElement('li');
+//       let stars = ['text-warning fa fa-star', 'text-warning fa fa-star', 'text-warning fa fa-star', 'text-warning fa fa-star', 'text-muted fa fa-star'];
+//       stars.forEach(starClass => {
+//           let starIcon = document.createElement('i');
+//           starIcon.className = starClass;
+//           starListItem.appendChild(starIcon);
+//       });
+      
+//       ratingList.appendChild(starListItem);
+//       cardBody.appendChild(ratingList);
+      
+//       // Add the price
+//       let price = document.createElement('p');
+//       price.className = 'text-center mb-0';
+//       price.textContent = '$20.00';
+//       cardBody.appendChild(price);
+      
+//       // Add the card body to the product card
+//       productWap.appendChild(cardBody);
+      
+//       // Add the product card to the main div
+//       mainDiv.appendChild(productWap);
+//       relatedCarousel.appendChild(mainDiv);
+//     })
+    
+//   // Create the main div
+ 
+//   $('#carousel-related-product').carousel();
+  
+  
+//   }
+//   createRelatedProduct()
+
+var cart = 0;
+var vartNumber = document.querySelector('.cart-number')
+var quantityValue = document.getElementById('var-value')
+
+let buyButton = document.querySelector('.buy-btn');
+buyButton.addEventListener('click',() =>{
+    quantityValue = Number(quantityValue.textContent)
+    window.location.href = `../../paypal.html?quantity=${quantityValue}&price=${price_Param}`
+
+
+})
